@@ -18,7 +18,7 @@ public class ProgrammerDaoImpl implements ProgrammerDao, GeneralDao<Programmer> 
         EntityManager entityManager = entityManagerFactory.createEntityManager();
         try {
             entityManager.getTransaction().begin();
-            entityManager.persist(programmer);
+            entityManager.merge(programmer);
             entityManager.getTransaction().commit();
         } catch (Exception e) {
             if (entityManager.getTransaction().isActive()) {

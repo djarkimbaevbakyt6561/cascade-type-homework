@@ -15,8 +15,20 @@ import java.util.List;
 public class Programmer extends BaseEntity{
     private String fullName;
     private String email;
-    @OneToOne(cascade = CascadeType.PERSIST)
+
+    @OneToOne(cascade = {CascadeType.PERSIST, CascadeType.MERGE, CascadeType.REMOVE})
     private Address address;
-    @ManyToMany(mappedBy = "programmers", cascade = CascadeType.PERSIST)
+
+    @ManyToMany(cascade = {CascadeType.PERSIST, CascadeType.MERGE})
+    @JoinTable(
+            name = "programmers_projects",
+            joinColumns = @JoinColumn(name = "programmer_id"),
+            inverseJoinColumns = @JoinColumn(name = "project_id")
+    )
     private List<Project> projects;
+
+    public Programmer(String fullName, String email) {
+        this.fullName = fullName;
+        this.email = email;
+    }
 }

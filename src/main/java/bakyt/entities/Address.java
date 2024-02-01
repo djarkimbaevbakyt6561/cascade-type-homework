@@ -19,4 +19,8 @@ public class Address extends BaseEntity{
     @OneToOne
     @JoinColumn(name = "company_id")
     private Company company;
+
+    public Address(String country) {
+        this.country = country;
+    }
 }

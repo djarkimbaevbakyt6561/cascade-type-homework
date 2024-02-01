@@ -1,5 +1,6 @@
 package bakyt.services.impls;
 
+import bakyt.dao.impls.AddressDaoImpl;
 import bakyt.dao.impls.CompanyDaoImpl;
 import bakyt.entities.Company;
 import bakyt.services.CompanyService;
@@ -9,6 +10,7 @@ import java.util.Optional;
 
 public class CompanyServiceImpl implements CompanyService, GeneralService<Company> {
     CompanyDaoImpl companyDao = new CompanyDaoImpl();
+    AddressDaoImpl addressDao = new AddressDaoImpl();
 
     @Override
     public void assignCompanyToAddress(Long companyId, Long addressId) {

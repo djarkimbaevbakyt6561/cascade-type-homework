@@ -17,4 +17,8 @@ public class Company extends BaseEntity{
     private String name;
     @OneToMany(mappedBy = "company", cascade = CascadeType.ALL)
     private List<Project> project ;
+
+    public Company(String name) {
+        this.name = name;
+    }
 }

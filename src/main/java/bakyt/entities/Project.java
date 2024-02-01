@@ -7,8 +7,6 @@ import lombok.Setter;
 
 import java.util.List;
 
-import static jakarta.persistence.CascadeType.*;
-
 @Entity
 @Table(name = "projects")
 @Getter @Setter
@@ -16,14 +14,20 @@ import static jakarta.persistence.CascadeType.*;
 @SequenceGenerator(name = "base_gen", sequenceName = "address_seq", allocationSize = 1)
 public class Project extends BaseEntity{
     private String title;
-    @ManyToOne(cascade = PERSIST)
+
+    @ManyToOne(cascade = {CascadeType.PERSIST, CascadeType.MERGE})
     @JoinColumn(name = "company_id")
     private Company company;
-    @ManyToMany
+
+    @ManyToMany(cascade = {CascadeType.PERSIST, CascadeType.MERGE})
     @JoinTable(
-            name = "students_courses",
+            name = "programmers_projects",
             joinColumns = @JoinColumn(name = "project_id"),
             inverseJoinColumns = @JoinColumn(name = "programmer_id")
     )
     private List<Programmer> programmers;
+
+    public Project(String title) {
+        this.title = title;
+    }
 }

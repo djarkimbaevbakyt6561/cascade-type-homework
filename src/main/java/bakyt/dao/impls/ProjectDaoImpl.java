@@ -19,7 +19,7 @@ public class ProjectDaoImpl implements ProjectDao, GeneralDao<Project> {
         EntityManager entityManager = entityManagerFactory.createEntityManager();
         try {
             entityManager.getTransaction().begin();
-            entityManager.persist(project);
+            entityManager.merge(project);
             entityManager.getTransaction().commit();
         } catch (Exception e) {
             if (entityManager.getTransaction().isActive()) {
