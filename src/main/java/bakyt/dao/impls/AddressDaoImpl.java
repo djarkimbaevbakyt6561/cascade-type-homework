@@ -38,7 +38,7 @@ public class AddressDaoImpl implements AddressDao, GeneralDao<Address> {
         EntityManager entityManager = entityManagerFactory.createEntityManager();
         try {
             entityManager.getTransaction().begin();
-            entityManager.persist(address);
+            entityManager.merge(address);
             entityManager.getTransaction().commit();
         } catch (Exception e) {
             if (entityManager.getTransaction().isActive()) {

@@ -16,7 +16,7 @@ public class Programmer extends BaseEntity{
     private String fullName;
     private String email;
 
-    @OneToOne(cascade = {CascadeType.PERSIST, CascadeType.MERGE, CascadeType.REMOVE})
+    @OneToOne(cascade = {CascadeType.PERSIST, CascadeType.MERGE})
     private Address address;
 
     @ManyToMany(cascade = {CascadeType.PERSIST, CascadeType.MERGE})

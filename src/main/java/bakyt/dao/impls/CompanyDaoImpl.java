@@ -23,7 +23,7 @@ public class CompanyDaoImpl implements CompanyDao, GeneralDao<Company> {
             Address address = entityManager.find(Address.class, addressId);
 
             if (company != null && address != null) {
-                address.setCompany(company);
+                company.setAddress(address);
                 entityManager.merge(address);
             }
 

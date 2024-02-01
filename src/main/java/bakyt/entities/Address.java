@@ -14,12 +14,8 @@ import static jakarta.persistence.CascadeType.*;
 @SequenceGenerator(name = "base_gen", sequenceName = "address_seq", allocationSize = 1)
 public class Address extends BaseEntity{
     private String country;
-    @OneToOne(mappedBy = "address", cascade ={PERSIST})
+    @OneToOne(mappedBy = "address", cascade ={ALL})
     private Programmer programmer;
-    @OneToOne
-    @JoinColumn(name = "company_id")
-    private Company company;
-
     public Address(String country) {
         this.country = country;
     }

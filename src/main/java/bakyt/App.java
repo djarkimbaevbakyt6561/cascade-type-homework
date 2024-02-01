@@ -19,14 +19,15 @@ public class App {
         ProgrammerServiceImpl programmerService = new ProgrammerServiceImpl();
         AddressServiceImpl addressService = new AddressServiceImpl();
 //        companyService.save(new Company("Adidas"));
+//        companyService.assignCompanyToAddress(1L, 1L);
 //        Project project = new Project("Hello");
-//        project.setCompany(companyService.getCompanyById(4L).orElseThrow(RuntimeException::new));
+//        project.setCompany(companyService.getCompanyById(1L).orElseThrow(RuntimeException::new));
 //        projectService.save(project);
 //        Address address = new Address("Germany");
 //        addressService.save(address);
 //        Programmer programmer = new Programmer("Hello Bkytov", "email@gmail.com");
-//        programmer.setAddress(addressService.getAddressById(11L).orElseThrow(RuntimeException::new));
+//        programmer.setAddress(addressService.getAddressById(1L).orElseThrow(RuntimeException::new));
 //        programmerService.save(programmer);
-//        companyService.delete(1L);
+//          companyService.delete(1L);
     }
 }
